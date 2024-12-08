@@ -40,42 +40,27 @@
 
 <script>
 
-    const apiKey = "3de98761bab3d7dfce18e3e046657497"
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
-    const searshBox = document.querySelector(".search input")
-    const searchButton = document.querySelector(".search button")
-    
-    async function getWeatherData(city) {
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`)
-        const data = await response.json()
-        console.log(data)
+    const apiKey = "3de98761bab3d7dfce18e3e046657497";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const searchBox = document.querySelector(".search input");
+    const searchButton = document.querySelector(".search button");
+
+    async function getWeatherData(city = "Belgrade") {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        const data = await response.json();
+        console.log(data);
 
         document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round( data.main.temp) + "°C";
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML =Math.round(data.wind.speed)  + " km/h";
-
-
-
-
-        //getWeatherData()
-        /*const temp = data.main.temp
-        const city = data.name
-        const humidity = data.main.humidity
-        const wind = data.wind.speed
-        const weatherIcon = data.weather[0].icon
-        const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIcon}.png`
-        document.querySelector(".temp").textContent = `${temp}°C`
-        document.querySelector(".city").textContent = city
-        document.querySelector(".humidity").textContent = `${humidity}%`
-        document.querySelector(".wind").textContent = `${wind} km/h`
-        document.querySelector(".weather-icon").src = weatherIconUrl*/
+        document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " km/h";
     }
-    searchButton.addEventListener("click", () => {
-        getWeatherData(searshBox.value)
-    })
 
-    getWeatherData();
+    searchButton.addEventListener("click", () => {
+        getWeatherData(searchBox.value);
+    });
+
+    getWeatherData(); // Show weather for Belgrade on app start
 </script>
 
 </body>

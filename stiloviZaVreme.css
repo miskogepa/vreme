@@ -10,7 +10,7 @@ body{
 }
 .card{
     position: relative; 
-    width: 90%;
+    width: 100%;
     height: 500px;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
     margin: 100px auto;
@@ -101,3 +101,22 @@ margin-top: 30px;}
    .humidity, .wind{
     font-size: 28px;
     margin-top: -6px;}
+
+    #vetar{
+        margin-left: 70px;
+        margin-top: 15px;
+    }
+
+    .wind{
+        font-size: 24px;
+    }
+    .wind-text{
+        font-size: 15px;
+    }
+
+    .humidity{
+        font-size: 24px;
+    }
+    .humidity-text{
+        font-size: 15px;
+    }

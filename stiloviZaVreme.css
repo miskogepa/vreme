@@ -85,14 +85,14 @@ margin-top: 30px;}
     display: flex;
     align-items: center;
     justify-content:space-between;
-    padding-left: 20px;
+    
     margin-top: 15px;
    }
    .col{
     display: flex;
     align-items: center;
     text-align: left;
-    margin-right: 20px; /* razmak između dve slike */
+   
    }
    .col img{
     width:40px;
@@ -103,7 +103,7 @@ margin-top: 30px;}
     margin-top: -6px;}
 
     #vetar{
-        margin-left: 70px;
+        margin-left: 160px;
         margin-top: 15px;
     }
 
@@ -112,6 +112,8 @@ margin-top: 30px;}
     }
     .wind-text{
         font-size: 15px;
+        color: #333;
+    
     }
 
     .humidity{
@@ -119,4 +121,5 @@ margin-top: 30px;}
     }
     .humidity-text{
         font-size: 15px;
+        color: rgb(152, 96, 185);
     }

@@ -41,11 +41,12 @@
 <script>
 
     const apiKey = "3de98761bab3d7dfce18e3e046657497"
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Belgrade"
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
+    const searshBox = document.querySelector(".search input")
+    const searchButton = document.querySelector(".search button")
     
-    
-    async function getWeatherData() {
-        const response = await fetch(apiUrl + `&appid=${apiKey}`)
+    async function getWeatherData(city) {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`)
         const data = await response.json()
         console.log(data)
 
@@ -70,6 +71,9 @@
         document.querySelector(".wind").textContent = `${wind} km/h`
         document.querySelector(".weather-icon").src = weatherIconUrl*/
     }
+    searchButton.addEventListener("click", () => {
+        getWeatherData(searshBox.value)
+    })
 
     getWeatherData();
 </script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vreme</title>
+    <link rel="stylesheet" href="stiloviZaVreme.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="enter city name" spellcheck="false">
+            <button class="Searchbutton">Search</button>
+        </div>
+        
+        <div class="weather">
+            <img src="slike/rain.png" class="weather-icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">Beograd</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="slike/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p class="humidity-text">Humidity</p>
+                    </div>
+                    <div class="col">
+                        <img src="slike/wind.png">
+                        <div>
+                            <p class="wind">15 km/h</p>
+                            <p class="wind-text">Wind speed</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+
+    const apiKey = "3de98761bab3d7dfce18e3e046657497"
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Belgrade"
+    
+    
+    async function getWeatherData() {
+        const response = await fetch(apiUrl + `&appid=${apiKey}`)
+        const data = await response.json()
+        console.log(data)
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = data.main.temp + "°C";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+
+
+
+        //getWeatherData()
+        /*const temp = data.main.temp
+        const city = data.name
+        const humidity = data.main.humidity
+        const wind = data.wind.speed
+        const weatherIcon = data.weather[0].icon
+        const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIcon}.png`
+        document.querySelector(".temp").textContent = `${temp}°C`
+        document.querySelector(".city").textContent = city
+        document.querySelector(".humidity").textContent = `${humidity}%`
+        document.querySelector(".wind").textContent = `${wind} km/h`
+        document.querySelector(".weather-icon").src = weatherIconUrl*/
+    }
+
+    getWeatherData();
+</script>
+
+</body>
+
+</html>
